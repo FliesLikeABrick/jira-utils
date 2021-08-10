@@ -1,8 +1,9 @@
 #! /usr/bin/env python3
 from jira import JIRA
+import logging
 import re
 import sre_constants
-import logging
+import sys
 
 def find_and_replace(issue_jql, replacements, additional_tests=None, dry_run=False, server=None, credentials=None, jira=None):
     '''Perform a find and replace in JIRA.  The logic errs on the side of safety and will skip attempting find+replace if a number of sanity checks fail, where the user's input may be flawed.
